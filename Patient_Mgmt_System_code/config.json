@@ -1,7 +1,7 @@
 
 {
-    "MYSQL_HOST": "192.168.113.3",
-    "MYSQL_USER": "PatientMgrAdmin",
-    "MYSQL_PASSWORD": "PatientMgr@Pass123",
-    "MYSQL_DB": "PatientRecordsDB"
+    "MYSQL_HOST": "",
+    "MYSQL_USER": "",
+    "MYSQL_PASSWORD": "",
+    "MYSQL_DB": ""
 }
