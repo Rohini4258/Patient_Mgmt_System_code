@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard_styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <!-- Add your CSS if needed -->
+</head>
+<body>
+    <h1>User Details</h1>
+
+    <table id="user-details-table">
+        <thead>
+            <tr>
+                <th>PatientID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>SSN</th>
+                <th>Diagnostics</th>
+                <th>Birthdate</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>User_Admin</th>
+                <!-- Add more fields as needed -->
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <div id="edit-patient-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Patient Details</h2>
+            <form id="edit-patient-form">
+                <input type="hidden" name="id" value="">
+                First Name: <input type="text" name="firstName" value=""><br>
+                Last Name: <input type="text" name="lastName" value=""><br>
+                SSN: <input type="text" name="ssn" value=""><br>
+                Diagnostics: <input type="text" name="diagnostics" value=""><br>
+                Birthdate: <input type="text" name="birthdate" value=""><br>
+                Gender: <input type="text" name="gender" value=""><br>
+                Address: <input type="text" name="address" value=""><br>
+                PhoneNumber: <input type="text" name="phoneNumber" value=""><br>
+                Email: <input type="text" name="email" value=""><br>
+                Password: <input type="password" name="password" value=""><br>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="button" class="close-btn">Close</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/user_dashboard_script.js') }}"></script>
+    <a href="{{ url_for('index')}}" class="button back-btn">Back</a>
+</body>
+</html>

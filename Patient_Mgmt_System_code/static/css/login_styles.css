@@ -1,0 +1,65 @@
+/* login_styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 80%; /* Adjust width as needed */
+    max-width: 400px; /* Adjust maximum width as needed */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px; /* Increase padding for better spacing */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adjust box-shadow for a subtle effect */
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for better clickability */
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Add transition for visual feedback */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 1px solid #007bff; /* Change color to match submit button */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none; /* Remove default outline */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for better clickability */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition for hover effect */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box-shadow */
+}

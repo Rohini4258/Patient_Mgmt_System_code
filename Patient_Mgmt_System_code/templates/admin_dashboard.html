@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard_styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Patients Data</h1>
+
+    <button id="createPatient" class="btn btn-primary" data-toggle="modal" data-target="#addPatientModal">Create</button>
+
+    <div class="modal fade" id="addPatientModal" tabindex="-1" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPatientModalLabel">Add New Patient</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="patientForm">
+                        <label for="firstName">First Name:</label><br>
+                        <input type="text" id="firstName" name="firstName"><br>
+                        <label for="lastName">Last Name:</label><br>
+                        <input type="text" id="lastName" name="lastName"><br>
+                        <label for="ssn">SSN:</label><br>
+                        <input type="text" id="ssn" name="ssn"><br>
+                        <label for="diagnostics">Diagnostics:</label><br>
+                        <input type="text" id="diagnostics" name="diagnostics"><br>
+                        <label for="birthdate">Birthdate:</label><br>
+                        <input type="date" id="birthdate" name="birthdate"><br>
+                        <label for="gender">Gender:</label><br>
+                        <input type="text" id="gender" name="gender"><br>
+                        <label for="address">Address:</label><br>
+                        <input type="text" id="address" name="address"><br>
+                        <label for="phoneNumber">Phone Number:</label><br>
+                        <input type="text" id="phoneNumber" name="phoneNumber"><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email"><br>
+                        <label for="username">Username:</label><br>
+                        <input type="username" id="username" name="username"><br>
+                        <label for="password">Password:</label><br>
+                        <input type="password" id="password" name="password"><br>
+                        <label for="user_admin">User_Admin:</label><br>
+                        <input type="user_admin" id="user_admin" name="user_admin"><br><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitPatient">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="editPatientModal" tabindex="-1" aria-labelledby="editPatientModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPatientModalLabel">Edit Patient</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPatientForm">
+                        <input type="hidden" id="editPatientID" name="patientID">
+                        <label for="editFirstName">First Name:</label><br>
+                        <input type="text" id="editFirstName" name="firstName"><br>
+                        <label for="editLastName">Last Name:</label><br>
+                        <input type="text" id="editLastName" name="lastName"><br>
+                        <label for="editSSN">SSN:</label><br>
+                        <input type="text" id="editSSN" name="ssn"><br>
+                        <label for="editDiagnostics">Diagnostics:</label><br>
+                        <input type="text" id="editDiagnostics" name="diagnostics"><br>
+                        <label for="editBirthdate">Birthdate:</label><br>
+                        <input type="date" id="editBirthdate" name="birthdate"><br>
+                        <label for="editGender">Gender:</label><br>
+                        <input type="text" id="editGender" name="gender"><br>
+                        <label for="editAddress">Address:</label><br>
+                        <input type="text" id="editAddress" name="address"><br>
+                        <label for="editPhoneNumber">Phone Number:</label><br>
+                        <input type="text" id="editPhoneNumber" name="phoneNumber"><br>
+                        <label for="editEmail">Email:</label><br>
+                        <input type="email" id="editEmail" name="email"><br>
+                        <label for="editUsername">Username:</label><br>
+                        <input type="text" id="editUsername" name="username"><br>
+                        <label for="editPassword">Password:</label><br>
+                        <input type="text" id="editPassword" name="password"><br>
+                        <label for="edituser_admin">User_Admin:</label><br>
+                        <input type="text" id="editUser_Admin" name="user_admin"><br><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitEditPatient">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="patients-table">
+        <thead>
+            <tr>
+                <th>PatientID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>SSN</th>
+                <th>Diagnostics</th>
+                <th>Birthdate</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>User_Admin</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="patients-body">
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/admin_dashboard_script.js') }}"></script>
+</body>
+</html>
